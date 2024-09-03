@@ -1,0 +1,236 @@
+class Pessoa {
+    String nome;
+    int idade;
+    String profissao;
+
+    Pessoa(String nome, int idade, String profissao) {
+        this.nome = nome;
+        this.idade = idade;
+        this.profissao = profissao;
+    }
+
+    void exibirDetalhes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Profissão: " + profissao);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Pessoa pessoa = new Pessoa("João", 30, "Engenheiro");
+        pessoa.exibirDetalhes();
+    }
+}
+
+class ContaBancaria {
+    String titular;
+    double saldo;
+    String numeroConta;
+
+    ContaBancaria(String titular, String numeroConta, double saldoInicial) {
+        this.titular = titular;
+        this.numeroConta = numeroConta;
+        this.saldo = saldoInicial;
+    }
+
+    void depositar(double valor) {
+        saldo += valor;
+    }
+
+    void sacar(double valor) {
+        if (saldo >= valor) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente!");
+        }
+    }
+
+    void exibirSaldo() {
+        System.out.println("Saldo atual: " + saldo);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ContaBancaria conta = new ContaBancaria("Maria", "12345-6", 1000);
+        conta.depositar(500);
+        conta.sacar(200);
+        conta.exibirSaldo();
+    }
+}
+
+class Carro {
+    String marca;
+    String modelo;
+    int ano;
+    int velocidade;
+
+    Carro(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.velocidade = 0;
+    }
+
+    void acelerar(int incremento) {
+        velocidade += incremento;
+    }
+
+    void desacelerar(int decremento) {
+        if (velocidade >= decremento) {
+            velocidade -= decremento;
+        } else {
+            velocidade = 0;
+        }
+    }
+
+    void exibirVelocidade() {
+        System.out.println("Velocidade atual: " + velocidade + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Carro carro = new Carro("Toyota", "Corolla", 2022);
+        carro.acelerar(50);
+        carro.desacelerar(20);
+        carro.exibirVelocidade();
+    }
+}
+
+class Livro {
+    String titulo;
+    String autor;
+    int numeroPaginas;
+    int exemplaresDisponiveis;
+
+    Livro(String titulo, String autor, int numeroPaginas, int exemplaresDisponiveis) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.numeroPaginas = numeroPaginas;
+        this.exemplaresDisponiveis = exemplaresDisponiveis;
+    }
+
+    void emprestar() {
+        if (exemplaresDisponiveis > 0) {
+            exemplaresDisponiveis--;
+            System.out.println("Livro emprestado com sucesso.");
+        } else {
+            System.out.println("Não há exemplares disponíveis.");
+        }
+    }
+
+    void devolver() {
+        exemplaresDisponiveis++;
+        System.out.println("Livro devolvido com sucesso.");
+    }
+
+    void exibirDisponibilidade() {
+        System.out.println("Exemplares disponíveis: " + exemplaresDisponiveis);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Livro livro = new Livro("O Alquimista", "Paulo Coelho", 200, 5);
+        livro.emprestar();
+        livro.exibirDisponibilidade();
+        livro.devolver();
+        livro.exibirDisponibilidade();
+    }
+}
+
+class Retangulo {
+    double largura;
+    double altura;
+
+    Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+
+    double calcularArea() {
+        return largura * altura;
+    }
+
+    double calcularPerimetro() {
+        return 2 * (largura + altura);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Retangulo retangulo = new Retangulo(5, 3);
+        System.out.println("Área: " + retangulo.calcularArea());
+        System.out.println("Perímetro: " + retangulo.calcularPerimetro());
+    }
+}
+
+class Contador {
+    int valor;
+
+    Contador() {
+        this.valor = 0;
+    }
+
+    void incrementar() {
+        valor++;
+    }
+
+    void decrementar() {
+        if (valor > 0) {
+            valor--;
+        } else {
+            System.out.println("Valor já está em 0.");
+        }
+    }
+
+    void exibirValor() {
+        System.out.println("Valor atual: " + valor);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Contador contador = new Contador();
+        contador.incrementar();
+        contador.incrementar();
+        contador.decrementar();
+        contador.exibirValor();
+    }
+}
+
+import java.util.ArrayList;
+
+class Estudante {
+    String nome;
+    int idade;
+    ArrayList<String> disciplinas;
+
+    Estudante(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.disciplinas = new ArrayList<>();
+    }
+
+    void adicionarDisciplina(String disciplina) {
+        disciplinas.add(disciplina);
+    }
+
+    void exibirDisciplinas() {
+        System.out.println("Disciplinas matriculadas:");
+        for (String disciplina : disciplinas) {
+            System.out.println(disciplina);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Estudante estudante = new Estudante("Ana", 20);
+        estudante.adicionarDisciplina("Matemática");
+        estudante.adicionarDisciplina("História");
+        estudante.exibirDisciplinas();
+    }
+}
